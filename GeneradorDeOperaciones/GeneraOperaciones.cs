@@ -104,7 +104,7 @@ namespace GeneradorDeOperaciones
             Operaciones operacion = new Operaciones();
 
             int operadorA = AppUtilities.random.Next(2, maxValue);
-            int operadorB = AppUtilities.random.Next(2, maxValue);
+            int operadorB = AppUtilities.random.Next(2, LevelMaxValues.MultiplicadorValue);
 
             int result = operadorA * operadorB;
             String operacionStr = (AppUtilities.currentState) ?
@@ -124,7 +124,7 @@ namespace GeneradorDeOperaciones
             Operaciones operacion = new Operaciones();
 
             int dividendo = AppUtilities.random.Next(2, maxValue);
-            int divisor = AppUtilities.random.Next(2, 99);
+            int divisor = AppUtilities.random.Next(2, ((LevelMaxValues.MultiplicadorValue == 1000 ) ? LevelMaxValues.MultiplicadorValue / 10 : LevelMaxValues.MultiplicadorValue )) ;
 
             while (dividendo < divisor)
             {

@@ -14,7 +14,7 @@ namespace GeneradorDeOperaciones
     public partial class MainWindow : Window
     {
         List<Operaciones> sumas = new List<Operaciones>(), restas = new List<Operaciones>(),
-            multi = new List<Operaciones>(), divi = new List<Operaciones>();
+        multi = new List<Operaciones>(), divi = new List<Operaciones>();
         double counter = 0;
         private int grade = 0;
 
@@ -27,7 +27,7 @@ namespace GeneradorDeOperaciones
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            startUpPath =  AppDomain.CurrentDomain.BaseDirectory;
+            startUpPath = AppDomain.CurrentDomain.BaseDirectory;
         }
 
         private void BtnStart_Click(object sender, RoutedEventArgs e)
@@ -38,12 +38,10 @@ namespace GeneradorDeOperaciones
                 return;
             }
 
-
             counter = 0;
             AppUtilities.random = new Random(DateTime.Now.Millisecond);
             if (RtbSumas.IsChecked == true)
             {
-                
                 while (counter < RnudSumas.Value)
                 {
                     sumas.Add(GeneraOperaciones.GetSuma(grade));
@@ -81,7 +79,6 @@ namespace GeneradorDeOperaciones
                 }
             }
 
-
             ImprimeOperaciones imprime = new ImprimeOperaciones(sumas, restas, multi, divi);
             imprime.Operaciones();
 
@@ -95,8 +92,37 @@ namespace GeneradorDeOperaciones
         private void GradeChecked(object sender, RoutedEventArgs e)
         {
             grade = Convert.ToInt32(((RadRadioButton)sender).Tag);
-        }
 
-        
+            if (grade == 1)
+            {
+                RtgDivision.IsChecked = false;
+                RtgDivision.IsEnabled = false;
+            }
+            else
+            {
+                RtgDivision.IsEnabled = true;
+            }
+
+            switch (grade)
+            {
+                case 1:
+                    grade = LevelMaxValues.BasicMaxValue;
+                    LevelMaxValues.MultiplicadorValue = 10;
+                    break;
+                case 10:
+                    grade = LevelMaxValues.PrincMaxValue;
+                    LevelMaxValues.MultiplicadorValue = 10;
+                    break;
+                case 100:
+                    grade = LevelMaxValues.PrincMaxValue;
+                    LevelMaxValues.MultiplicadorValue = 100;
+                    break;
+                case 1000:
+                    grade = LevelMaxValues.AdvMaxValue;
+                    LevelMaxValues.MultiplicadorValue = 1000;
+                    break;
+            }
+            
+        }
     }
 }

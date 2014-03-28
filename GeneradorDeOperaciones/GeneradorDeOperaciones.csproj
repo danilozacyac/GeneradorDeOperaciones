@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LevelMaxValues.cs" />
     <Compile Include="Printable\Fuentes.cs" />
     <Compile Include="Printable\HeaderFooter.cs" />
     <Compile Include="Printable\ImprimeOperaciones.cs" />

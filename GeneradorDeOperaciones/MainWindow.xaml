@@ -90,7 +90,7 @@
                 BorderBrush="Transparent"
                 BorderThickness="0"
                 Click="BtnStart_Click">
-            <Image Source="/GeneradorDeOperaciones;component/Resources/Play.png"  />
+            <Image Source="/GeneradorDeOperaciones;component/Resources/Play.png" />
         </Button>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
